@@ -115,7 +115,10 @@ function getLinearEquationRoot(a, b) {
  */
 function getAngleBetweenVectors(x1, y1, x2, y2) {
   const a = Math.atan2(y2, x2) - Math.atan2(y1, x1);
-  return a * (180 / Math.PI);
+  if (a < 0) {
+    return -a;
+  }
+  return a;
 }
 
 /**
