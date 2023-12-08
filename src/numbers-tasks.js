@@ -215,8 +215,8 @@ function isPrime(n) {
   if (n <= 1) {
     return false;
   }
-  for (let x = 2; x <= Math.sqrt(n);) {
-    if (x % i === 0) {
+  for (let x = 2; x <= Math.sqrt(n); x += 1) {
+    if (n % x === 0) {
       return false;
     }
   }
@@ -238,8 +238,12 @@ function isPrime(n) {
  *   toNumber(42, 0) => 42
  *   toNumber(new Number(42), 0) => 42
  */
-function toNumber(/* value, def */) {
-  throw new Error('Not implemented');
+function toNumber(value, def) {
+  const x = parseFloat(value);
+  if (Number.isNaN(x)) {
+    return def;
+  }
+  return x;
 }
 
 /**
